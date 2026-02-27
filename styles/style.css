@@ -32,7 +32,7 @@
 .header__theme-menu-button {
     background: transparent;
     border: 1px solid transparent;
-    padding: 4px 13px;
+    padding: 7px 13px;
     color: var(--text-secondary);
     text-transform: lowercase;
     cursor: pointer;
@@ -113,10 +113,11 @@
     color: var(--title-color);
     text-shadow: 4px 4px 0 var(--title-shadow);
     margin-block-start: 60px;
+    transition: font-size 0.5s
 }
 
 .header__description {
-    max-inline-size: 355px;
+
     font-weight: 700;
     color: var(--text-color);
     margin-block-start: 100px;
