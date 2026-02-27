@@ -3,11 +3,7 @@
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
         background-color: var(--bg-color);
-        background-image: var(--bg-image);
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
-        font-family: var(--main-font);
+        font-family: 'IBM Plex mono', monospace;
         color: var(--text-color);
 }
 
@@ -16,6 +12,10 @@
     padding: 20px;
     display: grid;
     align-content: start;
+    background-image: var(--bg-image);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .header__theme-menu {
@@ -33,7 +33,7 @@
     background: transparent;
     border: 1px solid transparent;
     padding: 4px 13px;
-    color: var(--accent-color);
+    color: var(--text-secondary);
     text-transform: lowercase;
     cursor: pointer;
 }
@@ -48,8 +48,9 @@
 }
 
 .header__theme-menu-button_active {
-    border-color: var(--accent-color);
+    border-color: var(--button-hover);
     pointer-events: none;
+    color: var(--text-secondary);
 }
 
 .decorated-zone {
@@ -81,8 +82,7 @@
 
 .rec {
     position: absolute;
-    inset-inline-end: 20px;
-    inset-block-start: 20px;
+    inset-inline-end: 5px;
     color: var(--accent-color);
     font-size: 18px;
 }
@@ -106,15 +106,26 @@
     margin-block-start: 60px;
 }
 
+.header__title,
+.footer__title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    line-height: 0.83;
+    color: var(--title-color);
+    text-shadow: 4px 4px 0 var(--title-shadow);
+    margin-block-start: 60px;
+}
+
 .header__description {
     max-inline-size: 355px;
     font-weight: 700;
-    margin-block-start: 55px;
+    color: var(--text-color);
+    margin-block-start: 100px;
+    justify-self: end;
 }
 
 .title-decor {
     background-color: var(--accent-color);
-    color: var(--bg-color);
+    color: var(--text-primary);
     padding: 2px 6px;
 }
 
@@ -130,7 +141,7 @@
 }
 
 .section__title {
-    color: var(--accent-color);
+    color: var(--decor-color);
     font-size: 18px;
     font-weight: 700;
 }
@@ -149,7 +160,7 @@
     font-size: 18px;
     font-weight: 400;
     background-color: var(--accent-color);
-    color: var(--bg-color);
+    color: var(--text-primary);
     padding: 2px 6px;
 }
 
@@ -178,13 +189,6 @@
     display: grid;
     place-items: center;
     padding: 20px;
-}
-
-.footer__title {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-    line-height: 0.83;
-    color: #d900fd;
-    text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 @media (width >= 1024px) {
@@ -244,5 +248,50 @@
 
     .gallery__grid img:nth-child(5) {
         grid-column: span 2;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --title-color: #d900fd;
+        --title-shadow: #ff0070;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --title-color: #fdc0e4;
+        --title-shadow: #ff8dcb;
+    }
+}
+
+@media (width >= 1024px) {
+    .section_three-columns {
+        display: block;
+    }
+    .section_three-columns .section__title {
+        margin-bottom: 20px;
+    }
+    .section_three-columns .section__content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+}
+
+@media (width >= 768px) and (width < 1024px) {
+    .section_three-columns {
+        display: block;
+    }
+
+}
+@media (width >= 1024px) {
+    .section_three-columns {
+        display: block;
+    }
+    .section_three-columns .section__content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 }

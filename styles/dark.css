@@ -11,6 +11,10 @@
   */
     --bg-color: #000028;
     --bg-image: url('../images/cover-image-dark.png');
+    --title-color: #d900fd;
+    --title-shadow: #ff0070;
+    --text-secondary: #ff0070;
+    --text-primary: #000028;
     --text-color: #f1b2ce;
     --accent-color: #ff0070;
     --decor-color: #ff0070;
